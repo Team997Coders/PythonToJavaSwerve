@@ -17,11 +17,11 @@ public class KinematicsTest {
         SwerveDrive4Kinematics kinematics = new SwerveDrive4Kinematics(frontLeft, frontRight, backLeft, backRight);
         
         ChassisSpeeds chassisSpeeds = new ChassisSpeeds(1.0, 0.0, 0.2);
-        SwerveModuleState[] moduleStates = kinematics.toSwerveModuleStates(chassisSpeeds);
-        SwerveModuleState fl = moduleStates[0];
-        SwerveModuleState fr = moduleStates[1];
-        SwerveModuleState bl = moduleStates[2];
-        SwerveModuleState br = moduleStates[3];
+        swervemoduleState[] moduleStates = kinematics.toswervemoduleStates(chassisSpeeds);
+        swervemoduleState fl = moduleStates[0];
+        swervemoduleState fr = moduleStates[1];
+        swervemoduleState bl = moduleStates[2];
+        swervemoduleState br = moduleStates[3];
 
         // Add your assertions here
         // Example:
@@ -38,11 +38,11 @@ public class KinematicsTest {
         SwerveDrive4Kinematics kinematics = new SwerveDrive4Kinematics(frontRight, frontLeft, backRight, backLeft);
         
         ChassisSpeeds chassisSpeeds = new ChassisSpeeds(1.0, 0.0, 0.2);
-        SwerveModuleState[] moduleStates = kinematics.toSwerveModuleStates(chassisSpeeds);
-        SwerveModuleState fr = moduleStates[0];
-        SwerveModuleState fl = moduleStates[1];
-        SwerveModuleState br = moduleStates[2];
-        SwerveModuleState bl = moduleStates[3];
+        swervemoduleState[] moduleStates = kinematics.toswervemoduleStates(chassisSpeeds);
+        swervemoduleState fr = moduleStates[0];
+        swervemoduleState fl = moduleStates[1];
+        swervemoduleState br = moduleStates[2];
+        swervemoduleState bl = moduleStates[3];
 
         // Add your assertions here
         // Example:

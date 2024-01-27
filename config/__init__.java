@@ -5,14 +5,14 @@ import com.example.config.pid.PIDConfig;
 
 import com.example.config.physical.PhysicalConfig;
 
-import com.example.config.swerve.SwerveModuleConfig;
+import com.example.config.swerve.swervemoduleConfig;
 import com.example.config.swerve.MotorConfig;
 import com.example.config.swerve.EncoderConfig;
-import com.example.config.swerve.SwerveModuledoubleProperty;
+import com.example.config.swerve.swervemoduledoubleProperty;
 import com.example.config.swerve.ModulePosition;
-import com.example.config.swerve.SwerveModuleIntProperty;
-import com.example.config.swerve.OptionalSwerveModuledoubleProperty;
-import com.example.config.swerve.OptionalSwerveModuleIntProperty;
+import com.example.config.swerve.swervemoduleIntProperty;
+import com.example.config.swerve.OptionalswervemoduledoubleProperty;
+import com.example.config.swerve.OptionalswervemoduleIntProperty;
 
 import com.example.config.drivercontrols.DriverControlsConfig;
 
@@ -30,14 +30,14 @@ public class ConfigPackage {
     private PhysicalConfig physicalConfig;
 
     // Import classes from swerve_module_config package
-    private SwerveModuleConfig swerveModuleConfig;
+    private swervemoduleConfig swervemoduleConfig;
     private MotorConfig motorConfig;
     private EncoderConfig encoderConfig;
-    private SwerveModuledoubleProperty swerveModuledoubleProperty;
+    private swervemoduledoubleProperty swervemoduledoubleProperty;
     private ModulePosition modulePosition;
-    private SwerveModuleIntProperty swerveModuleIntProperty;
-    private OptionalSwerveModuledoubleProperty optionalSwerveModuledoubleProperty;
-    private OptionalSwerveModuleIntProperty optionalSwerveModuleIntProperty;
+    private swervemoduleIntProperty swervemoduleIntProperty;
+    private OptionalswervemoduledoubleProperty optionalswervemoduledoubleProperty;
+    private OptionalswervemoduleIntProperty optionalswervemoduleIntProperty;
 
     // Import classes from driver_controls package
     private DriverControlsConfig driverControlsConfig;
@@ -45,25 +45,25 @@ public class ConfigPackage {
     // Constructor
     public ConfigPackage(Range range, OptionalRange optionalRange, PIDConfig pidConfig,
                          PhysicalConfig physicalConfig,
-                         SwerveModuleConfig swerveModuleConfig, MotorConfig motorConfig,
-                         EncoderConfig encoderConfig, SwerveModuledoubleProperty swerveModuledoubleProperty,
-                         ModulePosition modulePosition, SwerveModuleIntProperty swerveModuleIntProperty,
-                         OptionalSwerveModuledoubleProperty optionalSwerveModuledoubleProperty,
-                         OptionalSwerveModuleIntProperty optionalSwerveModuleIntProperty,
+                         swervemoduleConfig swervemoduleConfig, MotorConfig motorConfig,
+                         EncoderConfig encoderConfig, swervemoduledoubleProperty swervemoduledoubleProperty,
+                         ModulePosition modulePosition, swervemoduleIntProperty swervemoduleIntProperty,
+                         OptionalswervemoduledoubleProperty optionalswervemoduledoubleProperty,
+                         OptionalswervemoduleIntProperty optionalswervemoduleIntProperty,
                          DriverControlsConfig driverControlsConfig) {
         // Initialize fields with the provided values
         this.range = range;
         this.optionalRange = optionalRange;
         this.pidConfig = pidConfig;
         this.physicalConfig = physicalConfig;
-        this.swerveModuleConfig = swerveModuleConfig;
+        this.swervemoduleConfig = swervemoduleConfig;
         this.motorConfig = motorConfig;
         this.encoderConfig = encoderConfig;
-        this.swerveModuledoubleProperty = swerveModuledoubleProperty;
+        this.swervemoduledoubleProperty = swervemoduledoubleProperty;
         this.modulePosition = modulePosition;
-        this.swerveModuleIntProperty = swerveModuleIntProperty;
-        this.optionalSwerveModuledoubleProperty = optionalSwerveModuledoubleProperty;
-        this.optionalSwerveModuleIntProperty = optionalSwerveModuleIntProperty;
+        this.swervemoduleIntProperty = swervemoduleIntProperty;
+        this.optionalswervemoduledoubleProperty = optionalswervemoduledoubleProperty;
+        this.optionalswervemoduleIntProperty = optionalswervemoduleIntProperty;
         this.driverControlsConfig = driverControlsConfig;
     }
 

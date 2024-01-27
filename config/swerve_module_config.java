@@ -22,11 +22,11 @@ public enum ModulePosition {
     }
 }
 
-public class OptionalSwerveModuledoubleProperty {
+public class OptionalswervemoduledoubleProperty {
     private final double drive;
     private final double angle;
 
-    public OptionalSwerveModuledoubleProperty(double drive, double angle) {
+    public OptionalswervemoduledoubleProperty(double drive, double angle) {
         this.drive = drive;
         this.angle = angle;
     }
@@ -40,11 +40,11 @@ public class OptionalSwerveModuledoubleProperty {
     }
 }
 
-public class SwerveModuledoubleProperty {
+public class swervemoduledoubleProperty {
     private final double drive;
     private final double angle;
 
-    public SwerveModuledoubleProperty(double drive, double angle) {
+    public swervemoduledoubleProperty(double drive, double angle) {
         this.drive = drive;
         this.angle = angle;
     }
@@ -58,11 +58,11 @@ public class SwerveModuledoubleProperty {
     }
 }
 
-public class OptionalSwerveModuleIntProperty {
+public class OptionalswervemoduleIntProperty {
     private final int drive;
     private final int angle;
 
-    public OptionalSwerveModuleIntProperty(int drive, int angle) {
+    public OptionalswervemoduleIntProperty(int drive, int angle) {
         this.drive = drive;
         this.angle = angle;
     }
@@ -76,11 +76,11 @@ public class OptionalSwerveModuleIntProperty {
     }
 }
 
-public class SwerveModuleIntProperty {
+public class swervemoduleIntProperty {
     private final int drive;
     private final int angle;
 
-    public SwerveModuleIntProperty(int drive, int angle) {
+    public swervemoduleIntProperty(int drive, int angle) {
         this.drive = drive;
         this.angle = angle;
     }
@@ -142,7 +142,7 @@ public class EncoderConfig {
     }
 }
 
-public class SwerveModuleConfig {
+public class swervemoduleConfig {
     private final MotorConfig driveMotor;
     private final MotorConfig angleMotor;
     private final EncoderConfig encoder;
@@ -150,7 +150,7 @@ public class SwerveModuleConfig {
     private final PIDConfig drivePid;
     private final PIDConfig anglePid;
 
-    public SwerveModuleConfig(MotorConfig driveMotor, MotorConfig angleMotor, EncoderConfig encoder,
+    public swervemoduleConfig(MotorConfig driveMotor, MotorConfig angleMotor, EncoderConfig encoder,
                               double[] location, PIDConfig drivePid, PIDConfig anglePid) {
         this.driveMotor = driveMotor;
         this.angleMotor = angleMotor;

@@ -1,11 +1,11 @@
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class SwerveTelemetry {
+public class swerve_telemetry {
 
     private ISwerveDrive swerveDrive;
     private PhysicalConfig physicalConfig;
 
-    public SwerveTelemetry(ISwerveDrive swerveDrive, PhysicalConfig physicalConfig) {
+    public swerve_telemetry(ISwerveDrive swerveDrive, PhysicalConfig physicalConfig) {
         this.swerveDrive = swerveDrive;
         this.physicalConfig = physicalConfig;
     }
@@ -23,19 +23,19 @@ public class SwerveTelemetry {
         SmartDashboard.putNumber("swerve/moduleCount", swerveDrive.numModules());
         
         List<Pair<Double, Double>> wheelLocations = new ArrayList<>();
-        for (ISwerveModule module : swerveDrive.orderedModules()) {
+        for (Iswervemodule module : swerveDrive.orderedModules()) {
             wheelLocations.add(new Pair<>(module.getLocation().getX(), module.getLocation().getY()));
         }
         SmartDashboard.putNumberArray("swerve/wheelLocations", unpackTuples(wheelLocations));
         
         List<Pair<Double, Double>> measuredStates = new ArrayList<>();
-        for (ISwerveModule module : swerveDrive.orderedModules()) {
+        for (Iswervemodule module : swerveDrive.orderedModules()) {
             measuredStates.add(new Pair<>(module.getMeasuredState().getAngle().getDegrees(), module.getMeasuredState().getSpeed()));
         }
         SmartDashboard.putNumberArray("swerve/measuredStates", unpackTuples(measuredStates));
         
         List<Pair<Double, Double>> desiredStates = new ArrayList<>();
-        for (ISwerveModule module : swerveDrive.orderedModules()) {
+        for (Iswervemodule module : swerveDrive.orderedModules()) {
             desiredStates.add(new Pair<>(module.getDesiredState().getAngle().getDegrees(), module.getDesiredState().getSpeed()));
         }
         SmartDashboard.putNumberArray("swerve/desiredStates", unpackTuples(desiredStates));

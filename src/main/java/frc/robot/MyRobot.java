@@ -1,16 +1,15 @@
 package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.interfaces.Gyro;f
+import edu.wpi.first.wpilibj.interfaces.Gyro;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
-import org.apache.logging.log4j.Logger;
 
 public class MyRobot extends TimedRobot {
 
     private ISwerveDrive swerveDrive;
-    private SwerveTelemetry swerveTelemetry;
-    private TestDriver testDriver;
+    private swerve_telemetry swerveTelemetry;
+    private TestDriver TestDriver;
     private Gyro navx;
     private XboxController controller;
     private NetworkTable photonvision;
@@ -19,8 +18,8 @@ public class MyRobot extends TimedRobot {
         super.robotInit();
         navx = NavX.createSPI();
         controller = new XboxController(0);
-        swerveDrive = new SwerveDrive(navx, RobotConfig.SWERVE_MODULES, RobotConfig.PHYSICAL_PROPERTIES, LoggerSupplier.get());
-        swerveTelemetry = new SwerveTelemetry(swerveDrive, RobotConfig.PHYSICAL_PROPERTIES);
+        swervedrive = new swervedrive(navx, robot_config.SWERVE_MODULES, robot_config.PHYSICAL_PROPERTIES, LoggerSupplier.get());
+        swerveTelemetry = new swerve_telemetry(swervedrive, robot_config.PHYSICAL_PROPERTIES);
 ;
         swerveDrive.initialize();
 
@@ -36,7 +35,7 @@ public class MyRobot extends TimedRobot {
             photonvision = null;
         }
 
-        testDriver = new TestDriver(swerveDrive, LoggerSupplier.get());
+        TestDriver = new TestDriver(swerveDrive, LoggerSupplier.get());
     }
 
     public void robotPeriodic() {
@@ -56,7 +55,7 @@ public class MyRobot extends TimedRobot {
         if (hasQRCode) {
             LoggerSupplier.get().info("PhotonVision has_qr_code: " + hasQRCode);
             // TODO: Update pose position using angle to AprilTag and distance
-            // swerveDrive.odometry.resetPosition(new SwerveModulePosition(0, 0, 0), Rotation2d.fromDegrees(0));
+            // swerveDrive.odometry.resetPosition(new swervemodulePosition(0, 0, 0), Rotation2d.fromDegrees(0));
         }
     }
 
@@ -67,9 +66,9 @@ public class MyRobot extends TimedRobot {
         double vy = controller.getRawAxis(0);
         double theta = controller.getRawAxis(4);
 
-        double xDeadband = RobotConfig.TELEOP_CONTROLS.getXDeadband();
-        double yDeadband = RobotConfig.TELEOP_CONTROLS.getYDeadband();
-        double thetaDeadband = RobotConfig.TELEOP_CONTROLS.getThetaDeadband();
+        double xDeadband = robot_congig.TELEOP_CONTROLS.getXDeadband();
+        double yDeadband = robot_congig.TELEOP_CONTROLS.getYDeadband();
+        double thetaDeadband = robot_congig.TELEOP_CONTROLS.getThetaDeadband();
 
         if (Math.abs(theta) < thetaDeadband) {
             theta = 0;
@@ -78,17 +77,17 @@ public class MyRobot extends TimedRobot {
         if (Math.abs(vx) < xDeadband && Math.abs(vy) < yDeadband && Math.abs(theta) < thetaDeadband) {
             swerveDrive.lockWheels();
         } else {
-            vx *= RobotConfig.PHYSICAL_PROPERTIES.getMaxDriveSpeed();
-            vy *= RobotConfig.PHYSICAL_PROPERTIES.getMaxDriveSpeed();
+            vx *= robot_congig.PHYSICAL_PROPERTIES.getMaxDriveSpeed();
+            vy *= robot_congig.PHYSICAL_PROPERTIES.getMaxDriveSpeed();
             double scaledSpeed = Math.sqrt(vx * vx + vy * vy);
 
-            if (scaledSpeed > RobotConfig.PHYSICAL_PROPERTIES.getMaxDriveSpeed()) {
-                double scaleFactor = RobotConfig.PHYSICAL_PROPERTIES.getMaxDriveSpeed() / scaledSpeed;
+            if (scaledSpeed > robot_congig.PHYSICAL_PROPERTIES.getMaxDriveSpeed()) {
+                double scaleFactor = robot_congig.PHYSICAL_PROPERTIES.getMaxDriveSpeed() / scaledSpeed;
                 vx *= scaleFactor;
                 vy *= scaleFactor;
             }
 
-            swerveDrive.drive(-vx, -vy, theta * RobotConfig.PHYSICAL_PROPERTIES.getMaxRotationSpeed());
+            swerveDrive.drive(-vx, -vy, theta * robot_congig.PHYSICAL_PROPERTIES.getMaxRotationSpeed());
         }
     }
 
@@ -102,11 +101,11 @@ public class MyRobot extends TimedRobot {
 
     public void testInit() {
         super.testInit();
-        testDriver.testInit();
+        TestDriver.testInit();
     }
 
     public void testPeriodic() {
         super.testPeriodic();
-        testDriver.testPeriodic();
+        TestDriver.testPeriodic();
     }
 }

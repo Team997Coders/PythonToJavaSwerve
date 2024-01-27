@@ -1,5 +1,5 @@
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
-import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.kinematics.swervemoduleState;
 import org.ejml.simple.SimpleMatrix;
 
 public class MathHelpers {
@@ -23,28 +23,28 @@ public class MathHelpers {
         return diff;
     }
 
-    public static SwerveModuleState optimizeStateImproved(SwerveModuleState desiredState, Rotation2d currentAngle) {
+    public static swervemoduleState optimizeStateImproved(swervemoduleState desiredState, Rotation2d currentAngle) {
         Rotation2d desiredAngle = desiredState.angle;
         SimpleMatrix desiredVector = new SimpleMatrix(new double[][]{{desiredAngle.cos(), desiredAngle.sin()}});
         SimpleMatrix currentVector = new SimpleMatrix(new double[][]{{currentAngle.cos(), currentAngle.sin()}});
         double result = desiredVector.dot(currentVector);
         
         if (Math.abs(result) <= 1.00001) {
-            desiredState = new SwerveModuleState(desiredState.speed * result, desiredAngle);
+            desiredState = new swervemoduleState(desiredState.speed * result, desiredAngle);
         }
 
         if (Math.abs(result) < 1e-6) {
-            desiredState = new SwerveModuleState(0, desiredAngle);
+            desiredState = new swervemoduleState(0, desiredAngle);
         } else if (result < 0) {
             desiredAngle = desiredAngle.plus(new Rotation2d(Math.PI));
-            desiredState = new SwerveModuleState(desiredState.speed * result, desiredAngle);
+            desiredState = new swervemoduleState(desiredState.speed * result, desiredAngle);
         }
 
         return desiredState;
     }
 
-    public static SwerveModuleState optimizeImproved(double desiredAngleRadians, double desiredSpeed, double currentAngleRadians) {
-        SwerveModuleState desiredState = new SwerveModuleState(desiredSpeed, new Rotation2d(desiredAngleRadians));
+    public static swervemoduleState optimizeImproved(double desiredAngleRadians, double desiredSpeed, double currentAngleRadians) {
+        swervemoduleState desiredState = new swervemoduleState(desiredSpeed, new Rotation2d(desiredAngleRadians));
         Rotation2d currentRotation = new Rotation2d(currentAngleRadians);
         return optimizeStateImproved(desiredState, currentRotation);
     }

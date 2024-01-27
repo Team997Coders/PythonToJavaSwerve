@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.SparkMax;
 import edu.wpi.first.wpilibj.encoder.Encoder;
 import edu.wpi.first.wpilibj.geometry.Translation2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
-import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.kinematics.swervemoduleState;
 import edu.wpi.first.wpilibj.util.Units;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import com.revrobotics.CANSparkMax;
@@ -16,7 +16,7 @@ import com.revrobotics.CANPIDController;
 
 import java.util.logging.Logger;
 
-public class SwerveModule implements ISwerveModule {
+public class swervemodule implements Iswervemodule {
 
     private final ModulePosition _id;
     private final CANSparkMax driveMotor;
@@ -30,8 +30,8 @@ public class SwerveModule implements ISwerveModule {
 
     private double relToAbsoluteAngleAdjustment;
     private double relToCorrectedAngleAdjustment;
-    private SwerveModuleConfig config;
-    private kinematics.SwerveModuleState desiredState;
+    private swervemoduleConfig config;
+    private kinematics.swervemoduleState desiredState;
     private Logger logger;
 
     @Override
@@ -43,7 +43,7 @@ public class SwerveModule implements ISwerveModule {
     public void stop() {
         angleMotor.set(0);
         driveMotor.set(0);
-        desiredState = new kinematics.SwerveModuleState(0, getRotation2d());
+        desiredState = new kinematics.swervemoduleState(0, getRotation2d());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class SwerveModule implements ISwerveModule {
 
     @Override
     public void setAngle(double angle) {
-        desiredState = new kinematics.SwerveModuleState(desiredState.speed, new Rotation2d(angle));
+        desiredState = new kinematics.swervemoduleState(desiredState.speed, new Rotation2d(angle));
         double pidAngle = Units.degreesToRadians(angle) + relToCorrectedAngleAdjustment;
         double absPosition = angleAbsoluteEncoder.getPosition();
         double adjustment = MathHelp.shortestAngleDifference(absPosition, pidAngle);
@@ -77,10 +77,10 @@ public class SwerveModule implements ISwerveModule {
 
     // ... (other methods remain unchanged)
 
-    public SwerveModule(ModulePosition id, SwerveModuleConfig moduleConfig, PhysicalConfig physicalConfig, Logger logger) {
+    public swervemodule(ModulePosition id, swervemoduleConfig moduleConfig, PhysicalConfig physicalConfig, Logger logger) {
         _id = id;
         this.logger = logger.getChild(id.toString());
-        desiredState = new kinematics.SwerveModuleState(0, new geom.Rotation2d(0));
+        desiredState = new kinematics.swervemoduleState(0, new geom.Rotation2d(0));
         relToAbsoluteAngleAdjustment = 0;
         relToCorrectedAngleAdjustment = 0;
         config = moduleConfig;

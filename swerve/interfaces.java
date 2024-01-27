@@ -2,11 +2,11 @@ import edu.wpi.first.wpilibj.kinematics.SwerveDrive4Odometry;
 import edu.wpi.first.wpilibj.util.Units;
 import edu.wpi.first.wpilibj.geometry.Translation2d;
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
-import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.kinematics.swervemoduleState;
 import java.util.List;
 import java.util.Map;
 
-public interface ISwerveModule {
+public interface Iswervemodule {
 
     ModulePosition getId();
 
@@ -20,15 +20,15 @@ public interface ISwerveModule {
 
     void setAngle(double angle);
 
-    kinematics.SwerveModulePosition getPosition();
+    kinematics.swervemodulePosition getPosition();
 
     Rotation2d getRotation2d();
 
-    SwerveModuleState getDesiredState();
+    swervemoduleState getDesiredState();
 
-    void setDesiredState(SwerveModuleState value);
+    void setDesiredState(swervemoduleState value);
 
-    SwerveModuleState getMeasuredState();
+    swervemoduleState getMeasuredState();
 
     boolean initialize();
 
@@ -43,9 +43,9 @@ public interface ISwerveDrive {
 
     void lockWheels();
 
-    Map<ModulePosition, ISwerveModule> getModules();
+    Map<ModulePosition, Iswervemodule> getModules();
 
-    List<ISwerveModule> getOrderedModules();
+    List<Iswervemodule> getOrderedModules();
 
     boolean initialize();
 

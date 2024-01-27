@@ -3,7 +3,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import edu.wpi.first.wpilibj.geometry.Rotation2d;
-import edu.wpi.first.wpilibj.kinematics.SwerveModuleState;
+import edu.wpi.first.wpilibj.kinematics.swervemoduleState;
 import edu.wpi.first.wpilibj.util.hal.HALValue;
 
 import java.util.stream.DoubleStream;
@@ -15,12 +15,12 @@ import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 
 @RunWith(JUnitQuickcheck.class)
-public class TestSwerveModuleState {
+public class TestswervemoduleState {
 
     @Property
     public void optimizeTrivial(double speed, double angle) {
-        SwerveModuleState moduleState = new SwerveModuleState(speed, Rotation2d.fromDegrees(angle));
-        SwerveModuleState optimizedState = SwerveModuleState.optimize(moduleState, Rotation2d.fromDegrees(angle));
+        swervemoduleState moduleState = new swervemoduleState(speed, Rotation2d.fromDegrees(angle));
+        swervemoduleState optimizedState = swervemoduleState.optimize(moduleState, Rotation2d.fromDegrees(angle));
 
         assertEquals(optimizedState.speed, speed, 0.001);
         assertEquals(optimizedState.angle.getDegrees(), angle, 0.001);
@@ -31,8 +31,8 @@ public class TestSwerveModuleState {
         Rotation2d currentAngle = Rotation2d.fromRadians(currentRadians);
         Rotation2d desiredAngle = Rotation2d.fromRadians(desiredRadians);
         double difference = MathHelp.shortestAngleDifference(currentRadians, desiredRadians);
-        SwerveModuleState moduleState = new SwerveModuleState(speed, desiredAngle);
-        SwerveModuleState optimizedState = SwerveModuleState.optimize(moduleState, currentAngle);
+        swervemoduleState moduleState = new swervemoduleState(speed, desiredAngle);
+        swervemoduleState optimizedState = swervemoduleState.optimize(moduleState, currentAngle);
 
         if (Math.abs(difference) < Math.PI / 2.0) {
             assertEquals(optimizedState.speed, speed, 0.001);
@@ -49,8 +49,8 @@ public class TestSwerveModuleState {
         Rotation2d currentAngle = Rotation2d.fromRadians(currentRadians);
         Rotation2d desiredAngle = Rotation2d.fromRadians(desiredRadians);
         double difference = MathHelp.shortestAngleDifference(currentRadians, desiredRadians);
-        SwerveModuleState moduleState = new SwerveModuleState(speed, desiredAngle);
-        SwerveModuleState optimizedState = MathHelp.optimizeStateImproved(moduleState, currentAngle);
+        swervemoduleState moduleState = new swervemoduleState(speed, desiredAngle);
+        swervemoduleState optimizedState = MathHelp.optimizeStateImproved(moduleState, currentAngle);
 
         if (Math.abs(difference) <= Math.PI / 2.0) {
             assertTrue(optimizedState.speed >= 0 == speed >= 0); // check for same sign

@@ -1,10 +1,10 @@
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class SwerveTelemetry {
+public class swerve_telemetry {
 
     private SwerveDrive swerveDrive;
 
-    public SwerveTelemetry(SwerveDrive swerveDrive) {
+    public swerve_telemetry(SwerveDrive swerveDrive) {
         this.swerveDrive = swerveDrive;
     }
 
@@ -14,7 +14,7 @@ public class SwerveTelemetry {
         SmartDashboard.putNumber("Robot Heading", swerveDrive.getPose().getRotation().getDegrees());
 
         // Report telemetry for each swerve module
-        for (ISwerveModule module : swerveDrive.getModules().values()) {
+        for (Iswervemodule module : swerveDrive.getModules().values()) {
             SmartDashboard.putNumber("Module " + module.getId().ordinal() + " X", module.getLocation().getX());
             SmartDashboard.putNumber("Module " + module.getId().ordinal() + " Y", module.getLocation().getY());
             SmartDashboard.putNumber("Module " + module.getId().ordinal() + " Velocity", module.getVelocity());

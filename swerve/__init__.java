@@ -1,8 +1,8 @@
 // interfaces package
 package com.example.interfaces;
 
-public interface ISwerveModule {
-    // Define your ISwerveModule interface here
+public interface Iswervemodule {
+    // Define your Iswervemodule interface here
 }
 
 public interface ISwerveDrive {
@@ -12,15 +12,15 @@ public interface ISwerveDrive {
 // swervemodule package
 package com.example.swervemodule;
 
-public class SwerveModule implements ISwerveModule {
-    // Define your SwerveModule class here
+public class swervemodule implements Iswervemodule {
+    // Define your swervemodule class here
 }
 
 // swervedrive package
 package com.example.swervedrive;
 
 import com.example.interfaces.ISwerveDrive;
-import com.example.interfaces.ISwerveModule;
+import com.example.interfaces.Iswervemodule;
 
 public class SwerveDrive implements ISwerveDrive {
     // Define your SwerveDrive class here
