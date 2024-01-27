@@ -1,4 +1,4 @@
-public class YourClass {
+public class debug {
 
     public static void attachDebugger() {
         try {

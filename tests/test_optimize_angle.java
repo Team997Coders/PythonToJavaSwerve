@@ -15,7 +15,7 @@ import com.pholser.junit.quickcheck.Property;
 import com.pholser.junit.quickcheck.runner.JUnitQuickcheck;
 
 @RunWith(JUnitQuickcheck.class)
-public class TestswervemoduleState {
+public class test_optimize_angle {
 
     @Property
     public void optimizeTrivial(double speed, double angle) {

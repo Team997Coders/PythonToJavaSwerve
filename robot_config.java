@@ -1,7 +1,7 @@
 import java.util.EnumMap;
 import java.util.Map;
 
-public class robot_congig {
+public class robot_config {
 
     public static final PIDConfig DEFAULT_ANGLE_PID = new PIDConfig(0.4, 0.0, 0.0, new OptionalRange(0, Math.PI * 2));
     public static final PIDConfig DEFAULT_DRIVE_PID = new PIDConfig(0.2, 0.0, 0.0, null);

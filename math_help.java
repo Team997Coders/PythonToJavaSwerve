@@ -2,7 +2,7 @@ import edu.wpi.first.wpilibj.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.kinematics.swervemoduleState;
 import org.ejml.simple.SimpleMatrix;
 
-public class MathHelpers {
+public class math_help {
 
     public static double wrapAngle(double angle, double min) {
         double clamped = angle % (Math.PI * 2.0);

@@ -3,7 +3,7 @@ import edu.wpi.first.wpilibj.simulation.SimDeviceSim;
 
 import frc.robot.RobotContainer;
 
-public class RobotTest extends TestHarness {
+public class pyfrc_test extends TestHarness {
     
     @Override
     public void initialize() {

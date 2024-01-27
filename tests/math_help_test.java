@@ -1,7 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-public class MathHelpTest {
+public class math_help_test {
 
     @Test
     public void testShortestAngleDifference() {

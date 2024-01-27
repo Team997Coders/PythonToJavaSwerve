@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import edu.wpi.first.wpilibj.geometry.*;
 import edu.wpi.first.wpilibj.kinematics.*;
 
-public class KinematicsTest {
+public class test_kinematics {
 
     Translation2d frontLeft = new Translation2d(10, 10);
     Translation2d frontRight = new Translation2d(10, -10);
